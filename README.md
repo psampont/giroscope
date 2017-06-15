@@ -1,6 +1,14 @@
-be.cncd.giroscope
-=================
+Giro Scope
+==========
 
-CiviCRM extension for structured communications management.
+CiviCRM extension for belgian structured communications management.
 
+Status
+------
+* This exension is in development
 
+Features
+--------
+
+* View communications
+* Add new communication
