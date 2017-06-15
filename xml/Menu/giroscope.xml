@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/giroscope</path>
+    <page_callback>CRM_Giroscope_Page_Dashboard</page_callback>
+    <title>Dashboard</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/giroscope/add</path>
+    <page_callback>CRM_Giroscope_Form_ScopeAdd</page_callback>
+    <title>ScopeAdd</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
