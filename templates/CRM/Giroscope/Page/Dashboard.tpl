@@ -24,7 +24,7 @@
   <div class="crm-actions-ribbon">
     <ul id="actions">
       <li>
-        <a title="{ts}New communication for a {$name}{/ts}" class="search button" href="giroscope/add?mode={$name}">
+        <a title="{ts}New communication for a {$name}{/ts}" class="search button" href="add?mode={$name}">
          <span>
             <div class="icon inform-icon"></div>
             {ts}New communication for a {$name}{/ts}
