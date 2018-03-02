@@ -1,4 +1,19 @@
-{foreach from=$entities item=entity key=name}
+<div class="crm-actions-ribbon">
+{foreach from=$entities item=entity}
+    <ul id="actions">
+      <li>
+        <a title="{ts}New communication for a {$entity}{/ts}" class="search button" href="giroscope/add?mode={$entity}">
+         <span>
+            <div class="icon inform-icon"></div>
+            {ts}New communication for a {$entity}{/ts}
+          </span>
+        </a>
+      </li>
+    </ul>
+{/foreach}
+</div>
+<br><br>
+{foreach from=$communications item=communication key=name}
   <h3>{ts}{$name}{/ts}</h3>
   <table>
     <thead>
@@ -11,7 +26,7 @@
       </tr>
     </thead>
     <tbody id="iban_results">
-     {foreach from=$entity item=com}
+     {foreach from=$communication item=com}
       <tr>
         <td>{$com.type}</td>
         <td>{$com.entity_id}</td>
@@ -21,16 +36,4 @@
      {/foreach}
     </tbody>
   </table>
-  <div class="crm-actions-ribbon">
-    <ul id="actions">
-      <li>
-        <a title="{ts}New communication for a {$name}{/ts}" class="search button" href="add?mode={$name}">
-         <span>
-            <div class="icon inform-icon"></div>
-            {ts}New communication for a {$name}{/ts}
-          </span>
-        </a>
-      </li>
-    </ul>
-  </div><br><br>
 {/foreach}
