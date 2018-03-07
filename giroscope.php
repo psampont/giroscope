@@ -137,15 +137,15 @@ function giroscope_civicrm_preProcess($formName, &$form) {
  * Implements hook_civicrm_navigationMenu().
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_navigationMenu
- *
+ */
 function giroscope_civicrm_navigationMenu(&$menu) {
-  _giroscope_civix_insert_navigation_menu($menu, NULL, array(
-    'label' => ts('The Page', array('domain' => 'be.cncd.giroscope')),
-    'name' => 'the_page',
-    'url' => 'civicrm/the-page',
-    'permission' => 'access CiviReport,access CiviContribute',
-    'operator' => 'OR',
-    'separator' => 0,
-  ));
-  _giroscope_civix_navigationMenu($menu);
-} // */
+    _giroscope_civix_insert_navigation_menu($menu, NULL, array(
+      'label' => ts('GiroScope', array('domain' => 'be.cncd.giroscope')),
+      'name' => 'GiroScope',
+      'url' => 'civicrm/giroscope',
+      'permission' => 'access CiviContribute',
+      'separator' => 0,
+    ));
+    _giroscope_civix_navigationMenu($menu);
+ 
+} 
