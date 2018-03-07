@@ -18,14 +18,16 @@ class CRM_Giroscope_Page_Dashboard extends CRM_Core_Page {
 
     $query = "
   SELECT
-   com.giro_type_num AS type,
-   com.entity_id AS entity_id,
-   com.num,
-   com.description AS com_description,
-   type.entity,
-   type.description as type_description
+    com.giro_type_num AS type,
+    com.entity_id AS entity_id,
+    com.num,
+    com.description AS com_description,
+    type.entity,
+    type.description as type_description
   FROM
-   civicrm_giro_scope as com RIGHT JOIN civicrm_giro_type as type ON com.giro_type_num = type.num
+    civicrm_giro_scope as com RIGHT JOIN civicrm_giro_type as type ON com.giro_type_num = type.num
+  WHERE
+    is_deleted = false
   ORDER BY  type, type.num, com.num;  ";
     $communications = [];
     $query_result = CRM_Core_DAO::executeQuery($query);
