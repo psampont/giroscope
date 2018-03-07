@@ -3,7 +3,7 @@
 {foreach from=$entities item=entity}
     <ul id="actions">
       <li>
-        <a title="{ts}{$entity}{/ts}" class="search button" href="giroscope/add?mode={$entity}">
+        <a title="{ts}{$entity}{/ts}" class="search button" href="add?mode={$entity}">
          <span>
             <div class="icon inform-icon"></div>
             {ts}{$entity}{/ts}
