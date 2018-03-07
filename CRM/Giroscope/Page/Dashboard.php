@@ -37,12 +37,18 @@ class CRM_Giroscope_Page_Dashboard extends CRM_Core_Page {
         switch ($query_result->entity) {
           case 'Campaign' :
           case 'Event' :
-          case 'Contact' :
             $campaign = civicrm_api3($query_result->entity, 'getsingle', array(
               'sequential' => 1,
               'id' => $query_result->entity_id,
             ));
             $name = $campaign['title'];
+            break;
+          case 'Contact' :
+            $campaign = civicrm_api3($query_result->entity, 'getsingle', array(
+              'sequential' => 1,
+              'id' => $query_result->entity_id,
+            ));
+            $name = $campaign['display_name'];
             break;
           default :
             $name = $query_result->entity.' n.'.$query_result->entity_id;
