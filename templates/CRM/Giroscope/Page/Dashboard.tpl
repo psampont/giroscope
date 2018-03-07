@@ -1,11 +1,12 @@
 <div class="crm-actions-ribbon">
+{ts}Create new communication for : {/ts}
 {foreach from=$entities item=entity}
     <ul id="actions">
       <li>
-        <a title="{ts}New communication for a {$entity}{/ts}" class="search button" href="giroscope/add?mode={$entity}">
+        <a title="{ts}{$entity}{/ts}" class="search button" href="giroscope/add?mode={$entity}">
          <span>
             <div class="icon inform-icon"></div>
-            {ts}New communication for a {$entity}{/ts}
+            {ts}{$entity}{/ts}
           </span>
         </a>
       </li>
@@ -13,27 +14,32 @@
 {/foreach}
 </div>
 <br><br>
-{foreach from=$communications item=communication key=name}
-  <h3>{ts}{$name}{/ts}</h3>
-  <table>
-    <thead>
-      <tr class="columnheader">
-        <th>{ts}Type{/ts}</th>
-        <th>{ts}{$name}{/ts}</th>
-        <th>{ts}Index{/ts}</th>
-        <th>{ts}Description{/ts}</th>
-        <th>{ts}Communication{/ts}</th>
-      </tr>
-    </thead>
-    <tbody id="iban_results">
+<table>
+  {foreach from=$communications item=communication key=name}
+  <thead>
+    <tr>
+      <td colspan="4"><h3>{ts}{$name}{/ts}</h3></td>
+    </tr>
+    <tr class="columnheader"></r><tr>
+      <th width="20%">{ts}Communication{/ts}</th>
+      <th width="40%">{ts}Description{/ts}</th>
+      <th width="20%">{ts}Type{/ts}</th>
+      <th width="20%">{ts}{$name}{/ts}</th>
+    </tr>
+  </thead>
+  <tbody id="iban_results"> 
      {foreach from=$communication item=com}
       <tr>
+        <td><b>{$com.communication}</b></td>
+      {if $com.description eq ''}
+        <td>-</td>
+      {else}
+        <td>{$com.description}</td>
+      {/if}
         <td>{$com.type}</td>
         <td>{$com.entity_id}</td>
-        <td>{$com.index}</td>
-        <td>{$com.description}</td>
-        <td>{$com.communication}</td>
+     </tr>
      {/foreach}
     </tbody>
-  </table>
-{/foreach}
+  {/foreach}
+</table>
