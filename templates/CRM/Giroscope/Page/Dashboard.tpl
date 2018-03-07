@@ -20,7 +20,7 @@
     <tr>
       <td colspan="4"><h3>{ts}{$name}{/ts}</h3></td>
     </tr>
-    <tr class="columnheader"></r><tr>
+    <tr class="columnheader">
       <th width="20%">{ts}Communication{/ts}</th>
       <th width="30%">{ts}Description{/ts}</th>
       <th width="20%">{ts}Type{/ts}</th>

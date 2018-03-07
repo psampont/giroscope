@@ -12,4 +12,12 @@
     <title>ScopeAdd</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/admin/setting/giroscope/type</path>
+    <page_callback>CRM_Giroscope_Page_Types</page_callback>
+    <title>Types</title>
+    <adminGroup>CiviContribute</adminGroup>
+    <desc>Settings for the GiroScope module</desc>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
 </menu>
