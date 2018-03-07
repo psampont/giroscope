@@ -12,7 +12,7 @@ class CRM_Giroscope_Page_Dashboard extends CRM_Core_Page {
     $query_result = CRM_Core_DAO::executeQuery($query);
     $entities = [];
     while ($query_result->fetch()) {
-     $entities[] = $query_result->entity; 
+     $entities[] = ucfirst($query_result->entity);
     }
     $this->assign('entities', $entities);
 
@@ -30,10 +30,29 @@ class CRM_Giroscope_Page_Dashboard extends CRM_Core_Page {
     $communications = [];
     $query_result = CRM_Core_DAO::executeQuery($query);
     while ($query_result->fetch()) {
-      $modulo = ((($query_result->type * 10000) + $query_result->entity_id *1000) + $query_result->num) % 97;  
+      $query_result->entity= ucfirst($query_result->entity);
+      $modulo = ((($query_result->type * 10000) + $query_result->entity_id *1000) + $query_result->num) % 97; 
+
+      if ($query_result->entity_id != null) {
+        switch ($query_result->entity) {
+          case 'Campaign' :
+          case 'Event' :
+          case 'Contact' :
+            $campaign = civicrm_api3($query_result->entity, 'getsingle', array(
+              'sequential' => 1,
+              'id' => $query_result->entity_id,
+            ));
+            $name = $campaign['title'];
+            break;
+          default :
+            $name = $query_result->entity.' n.'.$query_result->entity_id;
+        }
+      }
+      else $name = '-';
+
       $communications[$query_result->entity][] = array(
         "type" => $query_result->type_description, 
-        "entity_id" => $query_result->entity_id,  
+        "entity_name" => $name,  
         "index" => $query_result->num, 
         "description" => $query_result->com_description,
         "communication" => sprintf("+++%03s/%04s/%03s%02s+++",$query_result->type, $query_result->entity_id, $query_result->num, $modulo)

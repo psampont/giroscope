@@ -22,9 +22,9 @@
     </tr>
     <tr class="columnheader"></r><tr>
       <th width="20%">{ts}Communication{/ts}</th>
-      <th width="40%">{ts}Description{/ts}</th>
+      <th width="30%">{ts}Description{/ts}</th>
       <th width="20%">{ts}Type{/ts}</th>
-      <th width="20%">{ts}{$name}{/ts}</th>
+      <th width="30%">{ts}{$name}{/ts}</th>
     </tr>
   </thead>
   <tbody id="iban_results"> 
@@ -37,7 +37,7 @@
         <td>{$com.description}</td>
       {/if}
         <td>{$com.type}</td>
-        <td>{$com.entity_id}</td>
+        <td>{$com.entity_name}</td>
      </tr>
      {/foreach}
     </tbody>
